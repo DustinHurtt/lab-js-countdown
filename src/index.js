@@ -2,91 +2,54 @@ const DURATION = 10; // 10 seconds
 let remainingTime = DURATION; // Countdown starting from 10
 let timer = null; // Variable to store the interval
 
-let startButton = document.getElementById('start-btn')
-startButton.addEventListener('click', startCountdown)
-
-let timeContainer = document.getElementById('time')
-
-let toast = document.getElementById('toast')
-
-let closeToast = document.getElementById('close-toast')
-
-let toastMessage = document.getElementById('toast-message')
-
-// closeToast.addEventListener('click', () => {
-//   remainingTime = DURATION
-//   toast.style.visibility ='hidden'
-//   toast.classList.remove('show')
-// })
-
-
+let startButton = document.getElementById("start-btn");
 
 // ITERATION 1: Add event listener to the start button
+startButton.addEventListener("click", startCountdown);
 
-// Your code goes here ...
+let timeContainer = document.getElementById("time");
 
+let toast = document.getElementById("toast");
 
+let closeToast = document.getElementById("close-toast");
 
+let toastMessage = document.getElementById("toast-message");
 
 // ITERATION 2: Start Countdown
 function startCountdown() {
   console.log("startCountdown called!");
 
-  remainingTime = DURATION
-  timeContainer.innerHTML = `${remainingTime}`
+  remainingTime = DURATION;
+  timeContainer.innerHTML = `${remainingTime}`;
 
   timer = setInterval(() => {
-    timeContainer.innerHTML = `${remainingTime}`
+    timeContainer.innerHTML = `${remainingTime}`;
     if (remainingTime === 10) {
-      showToast("⏰ Final countdown! ⏰")
+      showToast("⏰ Final countdown! ⏰");
     } else if (remainingTime === 5) {
-      showToast("Start the engines! 💥")
+      showToast("Start the engines! 💥");
     } else if (remainingTime <= 0) {
-      showToast("Lift off! 🚀")
-      clearInterval(timer)
-      remainingTime = DURATION
-      return
-    } 
-    remainingTime--
-
-  }, 1000)
-
-  // Your code goes here ...
+      showToast("Lift off! 🚀");
+      clearInterval(timer);
+      remainingTime = DURATION;
+      return;
+    }
+    remainingTime--;
+  }, 1000);
 }
-
-
-// To test your function, call the showToast() function with different messages in the startCountdown() function:
-// When the countdown timer is 10 seconds, show the message: "⏰ Final countdown! ⏰".
-// When the countdown timer is 5 seconds, show the message: "Start the engines! 💥".
-// When the countdown timer reaches 0, show the message: "Lift off! 🚀".
 
 // ITERATION 3: Show Toast
 function showToast(message) {
-  console.log("showToast called!");
-
-  // toast.style.visibility = 'visible'
-  toast.classList.toggle('show')
-  toastMessage.innerHTML = message
+  toast.classList.toggle("show");
+  toastMessage.innerHTML = message;
 
   setTimeout(() => {
-    toast.classList.remove('show')
-    // remainingTime = DURATION
-  }, 3300)
-
-
-  // Your code goes here ...
-
-
-  
-  // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-  
-  // Your code goes here ...
-  
+    toast.classList.remove("show");
+  }, 3300);
 }
+// BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
-closeToast.addEventListener('click', () => {
-
-  toast.classList.remove('show')
+closeToast.addEventListener("click", () => {
+  toast.classList.remove("show");
   // toast.style.visibility ='hidden'
-
-})
+});
